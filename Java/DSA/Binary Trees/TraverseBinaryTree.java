@@ -1,7 +1,6 @@
 
 public class TraverseBinaryTree{
 
-
     static class Node{
 
         int data;
@@ -35,6 +34,18 @@ public class TraverseBinaryTree{
 
     }
 
+
+    private static void preOrder(Node root){
+        if(root==null){
+            return;
+        }
+
+        System.out.println(root.data);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+
     public static void main(String[] args){
 
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -43,6 +54,12 @@ public class TraverseBinaryTree{
         Node root = BinaryTree.buildTree(nodes);
 
         System.out.println(root.data);
+
+
+        // 1. PreOrder Binary Search
+        // root, left-subtree, right-subtree;
+        preOrder(root);
+
     }
 
 }
