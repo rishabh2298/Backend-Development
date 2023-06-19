@@ -1,25 +1,24 @@
-public class TraverseBinaryTree{
+public class TraverseBinaryTree {
 
-    static class Node{
+    static class Node {
 
         int data;
         Node left;
         Node right;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
         }
 
     }
 
-
-    static class BinaryTree{
+    static class BinaryTree {
 
         private static int index = -1;
 
-        public static Node buildTree(int[] nodes){
+        public static Node buildTree(int[] nodes) {
             index++;
-            if(nodes[index] == -1){
+            if (nodes[index] == -1) {
                 return null;
             }
 
@@ -33,9 +32,8 @@ public class TraverseBinaryTree{
 
     }
 
-
-    private static void preOrder(Node root){
-        if(root==null){
+    private static void preOrder(Node root) {
+        if (root == null) {
             return;
         }
 
@@ -44,9 +42,8 @@ public class TraverseBinaryTree{
         preOrder(root.right);
     }
 
-
-    private static void inOrder(Node root){
-        if(root==null){
+    private static void inOrder(Node root) {
+        if (root == null) {
             return;
         }
 
@@ -55,16 +52,24 @@ public class TraverseBinaryTree{
         inOrder(root.right);
     }
 
+    private static void postOrder(Node root) {
+        if (root == null) {
+            return;
+        }
 
-    public static void main(String[] args){
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.println(root.data);
+    }
 
-        int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+    public static void main(String[] args) {
+
+        int[] nodes = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
 
         // return root Node
         Node root = BinaryTree.buildTree(nodes);
 
         System.out.println(root.data);
-
 
         // 1. PreOrder Search
         // root, left-subtree, right-subtree;
@@ -74,6 +79,9 @@ public class TraverseBinaryTree{
         // left-subtree, root, right-subtree;
         inOrder(root);
 
+        // 3. PostOrder Search
+        // left-subtree, right-subtree, root;
+        postOrder(root);
     }
 
 }
