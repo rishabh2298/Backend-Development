@@ -19,7 +19,7 @@ public class TraverseBinaryTree{
 
         public static Node buildTree(int[] nodes){
             index++;
-            if(node[index] == -1){
+            if(nodes[index] == -1){
                 return null;
             }
 
@@ -51,7 +51,7 @@ public class TraverseBinaryTree{
         }
 
         inOrder(root.left);
-        System.out.println(root);
+        System.out.println(root.data);
         inOrder(root.right);
     }
 
