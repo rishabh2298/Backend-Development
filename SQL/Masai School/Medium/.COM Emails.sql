@@ -49,4 +49,17 @@ ORDER BY
 
 
 
-3. 
+-- 3. R In The Name
+
+-- Print all details of customers whose First names are 4 letter words which start with the letter 'R'.
+-- Sort the result set in ascending order of Customer ID.
+
+SELECT
+ *
+FROM
+ Customers
+WHERE
+ FirstName LIKE 'R%' AND CHAR_LENGTH(FirstName) = 4
+ORDER BY
+ CustomerID ASC;
+ 
