@@ -44,3 +44,24 @@ GROUP BY
    c.CustomerID, c.FirstName, c.LastName
 ORDER BY
    c.CustomerID ASC;
+
+
+
+-- 3. Monthly Average Spend
+
+-- Identify the Average Order Amount by each Customer in each Month of Year 2020.
+-- Print Customer ID, Month, Average Order Amount.
+-- Sort the result set in ascending order of Customer ID.
+-- For records with the same Customer ID - sort them in ascending order of Month.
+
+SELECT
+   c.CustomerID, MONTH(o.OrderDate), AVG(o.Total_Order_Amount)
+FROM
+   Customers AS c INNER JOIN Orders AS o
+   ON c.CustomerID = o.CustomerID
+WHERE
+   YEAR(o.OrderDate) = 2020
+GROUP BY
+   c.CustomerID, MONTH(o.OrderDate)
+ORDER BY
+   c.CustomerID ASC, MONTH(o.OrderDate);
