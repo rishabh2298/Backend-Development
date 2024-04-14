@@ -6,11 +6,13 @@
     <title>Resume Builder</title>
 </head>
 <style>
+
+    /* header part */
+
     *{
         margin: 0px;
         padding: 0px;
         font-family: 'Times New Roman';
-        font-weight: 400;
     }
 
     body{
@@ -19,13 +21,25 @@
 
     h2{
         font-size: 28px;
-        font-weight: 500;
+        font-weight: 600;
         text-align: center;
+        color: teal;
+        font-weight: 600;
     }
 
     hr{
         border: 1px solid teal;
         border-radius: 10px;
+    }
+
+    hr+p{
+        text-align: end;
+        margin-top: 10px;
+    }
+
+    p{
+        font-size: 12px;
+        color: grey;
     }
 
     #main{
@@ -35,11 +49,97 @@
         margin-inline: auto;
         padding: 50px;
     }
+
+    /* body part  */
+
+    h4{
+        color: teal;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    h5{
+        margin: 3px 0px;
+    }
+
+    #main > div {
+        /* border: 1px dashed black; */
+        margin: 25px 0px;
+    }
+
+    div > ul{
+        /* border: 1px solid red; */
+        margin-left: 12px;
+        font-size: 12px;
+    }
+
 </style>
 <body>
     <div id="main">
         <h2>Your Name</h2>
         <hr>
+        <p>Address,City, St Zip Code | Telephone | Email</p>
+        
+        <div>
+            <h4>Objective</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis sunt quae obcaecati aperiam tempore, ad voluptate, tempora 
+                dolores nulla rem porro, cum quisquam praesentium aut?</p>
+        </div>
+        <div>
+            <h4>Education</h4>
+            <h5>Degree | DateEnterd | School</h3>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+            </ul>
+            <h5>Degree | DateEnterd | School</h3>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Skills & Ability</h4>
+            <h5>Management</h5>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ratione libero quis error itaque vitae, quos atque 
+                    iste consectetur in, rem ducimus numquam distinctio qui nobis placeat alias rerum consequatur iure. Consequuntur natus 
+                    omnis sit?</li>
+            </ul>
+            <h5>Sales</h5>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ratione libero quis error itaque vitae, quos atque 
+                    iste consectetur in, rem ducimus numquam distinctio qui nobis placeat alias rerum consequatur iure. Consequuntur natus 
+                    omnis sit?</li>
+            </ul>
+            <h5>Communication</h5>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ratione libero quis error itaque vitae, quos atque 
+                    iste consectetur in, rem ducimus numquam distinctio qui nobis placeat alias rerum consequatur iure. Consequuntur natus 
+                    omnis sit?</li>
+            </ul>
+            <h5>Leadership</h5>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam ratione libero quis error itaque vitae, quos atque 
+                    iste consectetur in, rem ducimus numquam distinctio qui nobis placeat alias rerum consequatur iure. Consequuntur natus 
+                    omnis sit?</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Experience</h4>
+            <h5>JOB TITLE | COMPANY | DATES FROM - TO</h3>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero commodi iste tempore debitis inventore. Ab architecto 
+                    doloremque ad neque. Nemo enim esse repellat ipsam iste.</li>
+            </ul>
+            <h5>JOB TITLE | COMPANY | DATES FROM - TO</h3>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero commodi iste tempore debitis inventore. Ab architecto 
+                    doloremque ad neque. Nemo enim esse repellat ipsam iste.</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
