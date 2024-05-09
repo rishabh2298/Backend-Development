@@ -14,14 +14,20 @@
         border: 1px solid red;
         width: 20%;
         margin: 100px auto;
-        background-color: blanchedalmond;
+        background-color: whitesmoke;
     }
     #display{
         border: 1px solid green;
+        background-color: rgb(237, 240, 177);
         height: 50px;
-        width: 90%;
+        width: 80%;
         margin: 30px auto;
         border-radius: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 10px 0 10px;
+        overflow-y: hidden;
     }
     #box{
         width: 90%;
@@ -47,8 +53,9 @@
         color: white;
     }
     #box>div:hover{
-        color: black;
-        background-color: whitesmoke;
+        color: white;
+        font-size: 22px;
+        background-color: rgb(10, 60, 187);
         border-radius: 40%;
     }
 </style>
@@ -76,4 +83,44 @@
         </div>
     </div>
 </body>
+
 </html>
+
+<script>
+
+    let display = document.querySelector("#display");
+    let buttons = document.querySelectorAll("#box > div");
+
+    for(let i=0; i<buttons.length; i++){
+        buttons[i].addEventListener("click", updateDisplay);
+    }
+
+    let value = "";
+
+    function updateDisplay(event){
+        
+        let element = event.target.innerText;
+
+        if(element == "C"){
+            value = "";
+        }
+        else if(element == "="){
+            if(display.innerText == ""){
+                return;
+            }
+            value = eval(display.innerText);
+        }
+        else{
+            value += element
+        }
+
+        if(value == undefined || value == null || value == Infinity){
+            value = ""
+            display.innerText = value;
+            return;
+        }
+
+        display.innerText = value;
+    }
+
+</script>
