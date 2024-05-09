@@ -12,19 +12,44 @@
     }
     #container{
         border: 1px solid red;
-        width: 30%;
+        width: 20%;
         margin: 100px auto;
+        background-color: blanchedalmond;
     }
     #display{
         border: 1px solid green;
         height: 50px;
         width: 90%;
         margin: 30px auto;
+        border-radius: 10px;
     }
     #box{
-        border: 1px solid blue;
         width: 90%;
         margin: 20px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    #box>div{
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 50px;
+    }
+    .blc{
+        background-color: black;
+        color: white;
+    }
+    .rd{
+        background-color: orangered;
+        color: white;
+    }
+    #box>div:hover{
+        color: black;
+        background-color: whitesmoke;
+        border-radius: 40%;
     }
 </style>
 
