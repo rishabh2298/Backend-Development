@@ -49,8 +49,30 @@
 
     #container_2{
         border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 20px 20px;
+        grid-template-areas: 
+        ""
+        ""
+        ""
+        "";
     }
-    
+
+    #container_2 > div{
+        border: 1px solid black;
+        height: 50px;
+        width: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
 </style>
 
 <body>
