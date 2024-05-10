@@ -110,4 +110,32 @@
 
 <script>
 
+    let min_value = document.querySelector("#container_1 > div:nth-child(1)");
+    let max_value = document.querySelector("#container_1 > div:nth-child(2)");
+    let score_value = document.querySelector("#container_1 > div:nth-child(3)");
+
+    let keypads = document.querySelectorAll("#container_2 > div");
+
+    for(let i=0; i<keypads.length; i++){
+        keypads[i].addEventListener("click", showScore());
+    }
+
+    let final_score = "0"
+
+    function showScore(event){
+        let key_value = event.target.innerText;
+
+        if(key_value == "ENTER"){
+            min_value.innerText = Math.min(Number(min_value.innerText), Number(final_score));
+            max_value.innerText = Math.max(Number(max_value.innerText), Number(final_score));
+
+            score_value.innerText = "SCORE";
+        }
+        else{
+            final_score += key_value;
+        }
+
+        score_value.innerText = final_score;
+    }
+
 </script>
