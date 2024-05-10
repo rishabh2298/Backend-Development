@@ -88,9 +88,9 @@
 
 <body>
     <div id="container_1">
-        <div>Min</div>
-        <div>MAX</div>
-        <div>SCORE</div>
+        <div id="min_value">Min</div>
+        <div id="max_value">MAX</div>
+        <div id="score_value">SCORE</div>
     </div>
     <div id="container_2">
         <div>1</div>
@@ -110,25 +110,34 @@
 
 <script>
 
-    let min_value = document.querySelector("#container_1 > div:nth-child(1)");
-    let max_value = document.querySelector("#container_1 > div:nth-child(2)");
-    let score_value = document.querySelector("#container_1 > div:nth-child(3)");
+    let min_value = document.querySelector("#min_value");
+    let max_value = document.querySelector("#max_value");
+    let score_value = document.querySelector("#score_value");
 
     let keypads = document.querySelectorAll("#container_2 > div");
 
     for(let i=0; i<keypads.length; i++){
-        keypads[i].addEventListener("click", showScore());
+        keypads[i].addEventListener("click", showScore);
     }
 
-    let final_score = "0"
+    let final_score = ""
 
     function showScore(event){
         let key_value = event.target.innerText;
+        
+        console.log(key_value)
 
         if(key_value == "ENTER"){
-            min_value.innerText = Math.min(Number(min_value.innerText), Number(final_score));
-            max_value.innerText = Math.max(Number(max_value.innerText), Number(final_score));
-
+            if(min_value.innerText == "Min" || max_value.innerText == "Max"){
+                min_value.innerText = Number(final_score);
+                max_value.innerText = Number(final_score);
+            }
+            else{
+                min_value.innerText = Math.min(Number(min_value.innerText), Number(final_score));
+                max_value.innerText = Math.max(Number(max_value.innerText), Number(final_score));
+            }
+            
+            final_score = ""
             score_value.innerText = "SCORE";
         }
         else{
