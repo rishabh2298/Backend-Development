@@ -18,10 +18,9 @@
         height: 600px;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
     }
     #container_1{
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         display: flex;
         height: 200px;
         justify-content: space-evenly;
@@ -30,34 +29,30 @@
     }
 
     #container_1 > div{
-        border: 1px solid peru;
-        height: 80px;
-        width: 140px;
+        /* border: 1px solid peru; */
+        height: 70px;
+        width: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 25px;
         background-color: grey;
         color: white;
+        margin: 10px;
     }
 
     #container_1 > div:nth-child(3){
         height: 90px;
-        width: 180px;
+        width: 200px;
         background-color: goldenrod;
     }
 
     #container_2{
-        border: 1px solid red;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 20px 20px;
-        grid-template-areas: 
-        ""
-        ""
-        ""
-        "";
+        /* border: 1px solid red; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px;
     }
 
     #container_2 > div{
@@ -71,6 +66,22 @@
         background-color: whitesmoke;
         font-weight: 700;
         font-size: 20px;
+        margin: 2% 8%;
+    }
+
+    #container_2>div:hover{
+        color: white;
+        background-color: palevioletred;
+    }
+
+    #container_2 > div:nth-child(10){
+        margin: 10px 40% 40px;
+    }
+
+    #container_2 > div:nth-child(11){
+        border: 5px solid red;
+        border-radius: 10px;
+        width: 40%;
     }
 
 </style>
@@ -96,3 +107,7 @@
     </div>
 </body>
 </html>
+
+<script>
+
+</script>
