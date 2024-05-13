@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluation Report System</title>
+    <link rel="stylesheet" href="evaluationReport.css">
 </head>
+
 <body>
     
     <form action="">
@@ -27,33 +29,36 @@
         <br>
 
         <label for="">Enter DSA Score :</label><br>
-        <input type="number" name="" id="dsa_score">
+        <input type="number" name="" id="dsa_score" placeholder="DSA Score">
         <br>
 
         <label for="">Enter Skillathon Score :</label><br>
-        <input type="number" id="skillathon_score">
+        <input type="number" id="skillathon_score" placeholder="Skillathon Score">
         <br>
 
         <label for="">Enter Coding Score :</label><br>
-        <input type="number" name="" id="coding_score">
+        <input type="number" name="" id="coding_score" placeholder="Coding Score">
         <br>
     </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Batch</th>
-                <th>DSA Score</th>
-                <th>Skillathon Score</th>
-                <th>Coding Score</th>
-            </tr>
-        </thead>
-        <tbody id="container">
-            <!-- Append dynamic data here from JS file -->
-        </tbody>
-    </table>
+    <div>
+        <table cellSpacing="0px">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Batch</th>
+                    <th>DSA Score</th>
+                    <th>Skillathon Score</th>
+                    <th>Coding Score</th>
+                </tr>
+            </thead>
+            <tbody id="container">
+                <!-- Append dynamic data here from JS file -->
+            </tbody>
+        </table>
+    </div>
 
 </body>
+
 </html>
