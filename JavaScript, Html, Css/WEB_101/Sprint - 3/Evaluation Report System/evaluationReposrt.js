@@ -65,10 +65,19 @@ function createTable(event){
         td8.style.color = "white";
         td8.style.padding = "5px";
 
-        tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
+        let td9 = document.createElement("td");
+        td9.innerText = "DELETE";
+        td9.addEventListener("click",deleteRow);
+
+        tr.append(td1,td2,td3,td4,td5,td6,td7,td8,td9);
         box.append(tr);
     });
 
 
     form.reset();
+}
+
+
+function deleteRow(event){
+    event.target.parentNode.remove();
 }
