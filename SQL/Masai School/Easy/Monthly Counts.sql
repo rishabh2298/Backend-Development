@@ -37,3 +37,18 @@ FROM
 ORDER BY
    ShipperId ASC, OrderId ASC;
    
+
+
+-- 3. Rolling 2 Days
+
+-- Find out the 2 day rolling sum of total order amount for Orderdate.
+
+-- Print Orderdate,Total order amount and rolling sum in ascending order of orderdate.
+
+SELECT
+   OrderDate, Total_order_amount,
+   SUM(Total_order_amount) OVER (ORDER BY OrderDate ASC ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) AS rolling_sum
+FROM
+   Orders
+ORDER BY
+   OrderDate ASC;
