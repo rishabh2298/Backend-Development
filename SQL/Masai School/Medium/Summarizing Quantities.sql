@@ -3,10 +3,25 @@
 -- 1. Summarizing Quantities
 
 -- Print the following Pivot Table
-
 -- The values in the matrix represent the total quantity shipped by the shippers through the different years and quarters. (Consider ShipDate)
-
 -- Sort the result in ascending order of Year, for records with the same year sort them in ascending order of Quarter.
+
+
+Your Output:
+
+|    |   year_ |   quarter_ |   Shipper_1 |   Shipper_2 |   Shipper_3 |   Shipper_4 |   Shipper_5 |   Shipper_6 |   Shipper_7 |   Shipper_8 |
+|---:|--------:|-----------:|------------:|------------:|------------:|------------:|------------:|------------:|------------:|------------:|
+|  0 |    2020 |          1 |         229 |         197 |         220 |          34 |         180 |         123 |         392 |         373 |
+|  1 |    2020 |          2 |         771 |         935 |        1173 |         505 |         740 |        1366 |         923 |        1007 |
+|  2 |    2020 |          3 |        2201 |        1519 |        1723 |        1809 |        1330 |        1454 |        1604 |        1466 |
+|  3 |    2020 |          4 |        2741 |        2379 |        2256 |        2635 |        2339 |        2381 |        1878 |        2647 |
+|  4 |    2021 |          1 |        4434 |        3264 |        2696 |        2955 |        3686 |        3289 |        2653 |        4396 |
+|  5 |    2021 |          2 |        5422 |        6294 |        6017 |        6182 |        6331 |        6354 |        5101 |        4954 |
+|  6 |    2021 |          3 |        7838 |        7355 |        8495 |        7817 |        8475 |        7172 |        8375 |        9441 |
+|  7 |    2021 |          4 |       12594 |       12705 |       13922 |       11782 |       11781 |       12741 |       12865 |       14452 |
+|  8 |    2022 |          1 |         457 |         469 |        1013 |         294 |         621 |         317 |         921 |         813 |
+
+
 
 WITH HelpTable AS (
    SELECT
@@ -79,4 +94,3 @@ GROUP BY
    year_, quarter_
 ORDER BY
    year_, quarter_;
-   
