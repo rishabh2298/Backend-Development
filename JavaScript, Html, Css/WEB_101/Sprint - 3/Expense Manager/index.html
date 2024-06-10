@@ -38,6 +38,32 @@
 </html>
 
 <script>
+
+  let form = document.querySelector("form");
+  form.addEventListener("submit", addData);
+
   
-  
+  let userData = []
+
+
+  function addData(event){
+
+    event.target.preventDefault();
+
+    let obj = {
+      month : document.querySelector("#month").value,
+      income : document.querySelector("#income").value,
+      expense : document.querySelector("#expense").value
+    };
+
+    userDate.push(obj);
+    
+    uploadData(userData);
+  }
+
+
+  function uploadData(userData){
+
+  }
+
 </script>
