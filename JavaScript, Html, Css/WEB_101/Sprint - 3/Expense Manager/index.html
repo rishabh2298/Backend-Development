@@ -64,6 +64,57 @@
 
   function uploadData(userData){
 
+    let report = document.querySelector("#report");
+
+    // uploading data to presentation layer
+    userData.forEach( element => {
+
+      let box = document.createElement("div");
+      box.setAttribute("class","box");
+
+      let month = document.createElement("h1");
+      month.innerText = element.month;
+
+      let income = document.createElement("p");
+      income.innerText = element.income;
+
+      let expense = document.createElement("p");
+      expense.innerText = element.expense;
+
+      let status = document.createElement("h3");
+      // DEBT - RED
+      if(element.income < element.expense){
+        status.innerText = "DEBT";
+        status.style.color = "Red";
+      }
+      // SAVE - GREEN
+      else if(element.income > element.expense){
+        status.innerText = "SAVE";
+        status.style.color = "Green";
+      }
+      // BREAKEVEN - ORANGE
+      else{
+        status.innerText = "BREAKEVEN";
+        status.style.color = "Orange";
+      }
+
+      let button = document.createElement("button");
+      button.innerText = "DELETE";
+      button.addEventListener("click", deleteData);
+
+      box.append(month, income, expense, status, button);
+      report.append(box);
+    });
+
   }
+
+
+  function deleteData(event){
+    event.target.parentNode.remove();
+    location.reload();
+  }
+
+  // to load old data
+  uploadData(userData);
 
 </script>
