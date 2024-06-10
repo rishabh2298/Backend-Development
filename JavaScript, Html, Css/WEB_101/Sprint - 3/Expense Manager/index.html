@@ -43,12 +43,12 @@
   form.addEventListener("submit", addData);
 
   
-  let userData = []
+  let userData = [] || null;
 
 
   function addData(event){
 
-    event.target.preventDefault();
+    event.preventDefault();
 
     let obj = {
       month : document.querySelector("#month").value,
@@ -56,7 +56,7 @@
       expense : document.querySelector("#expense").value
     };
 
-    userDate.push(obj);
+    userData.push(obj);
     
     uploadData(userData);
   }
@@ -65,6 +65,7 @@
   function uploadData(userData){
 
     let report = document.querySelector("#report");
+    report.innerHTML = "";
 
     // uploading data to presentation layer
     userData.forEach( element => {
@@ -83,12 +84,12 @@
 
       let status = document.createElement("h3");
       // DEBT - RED
-      if(element.income < element.expense){
+      if(Number(element.income) < Number(element.expense)){
         status.innerText = "DEBT";
         status.style.color = "Red";
       }
       // SAVE - GREEN
-      else if(element.income > element.expense){
+      else if(Number(element.income) > Number(element.expense)){
         status.innerText = "SAVE";
         status.style.color = "Green";
       }
@@ -111,7 +112,7 @@
 
   function deleteData(event){
     event.target.parentNode.remove();
-    location.reload();
+    // location.reload();
   }
 
   // to load old data
