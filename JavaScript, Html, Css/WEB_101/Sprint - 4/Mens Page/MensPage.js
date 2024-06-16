@@ -1,7 +1,9 @@
 
 let container = document.getElementById("container");
+container.style.display = "flex";
+container.style.flexWrap = "wrap";
 
-var mensData = [
+let mensData = [
     {
       image_url:
         "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
@@ -256,3 +258,33 @@ var mensData = [
     },
   ];
 
+function uploadData(){
+
+    mensData.forEach(function(elem){
+            
+        let box = document.createElement("div");
+        box.style.margin = "20px";
+        box.style.width = "30%";
+
+        let img = document.createElement("img");
+        img.setAttribute("src",""+elem.image_url);
+        img.style.height = "120px";
+        img.style.width = "120px";
+
+        let productName = document.createElement("h3");
+        productName.innerText = elem.name;
+
+        let price = document.createElement("h3");
+        price.innerText = "$"+elem.price;
+
+        let button = document.createElement("button");
+        button.innerText = "Add to Cart";
+
+        box.append(img, productName, price, button);
+        container.append(box);
+    });
+
+}
+
+
+uploadData();
