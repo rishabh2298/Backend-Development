@@ -94,3 +94,53 @@ GROUP BY
    year_, quarter_
 ORDER BY
    year_, quarter_;
+
+
+
+/*
+3. Summarizing City Revenue
+
+Print the following Pivot Table
+
+The values in the matrix represent the total sum of revenue generated out of orders ordered from the different cities in the 
+database through the different years and quarters. (Consider OrderDate)
+Sort the result in ascending order of Year, for records with the same year, sort them in ascending order of Quarter.
+
+Your Output:
+
+|    |   year_ |   quarter_ |   Geneva |   Brisbane |   Chennai |   San Francisco |
+|---:|--------:|-----------:|---------:|-----------:|----------:|----------------:|
+|  0 |    2020 |          1 |      nan |      61499 |       nan |             nan |
+|  1 |    2020 |          2 |    15050 |     181009 |       nan |          184566 |
+|  2 |    2020 |          3 |    49039 |     141717 |       nan |          199762 |
+|  3 |    2020 |          4 |    49835 |     131784 |       nan |          347906 |
+|  4 |    2021 |          1 |    49298 |     177846 |     30559 |          250736 |
+|  5 |    2021 |          2 |   298908 |     185740 |    303514 |          105664 |
+|  6 |    2021 |          3 |   446026 |     263425 |    273831 |          247435 |
+|  7 |    2021 |          4 |   429520 |     367590 |    400390 |          335803 |
+
+*/
+
+
+WITH HelpTable AS(
+   SELECT
+      YEAR(o.OrderDate) AS year_ , QUARTER(o.OrderDate) AS quarter_ , c.City AS city_name, SUM(o.Total_Order_Amount) AS total_revenue
+   FROM
+      Orders AS o INNER JOIN Customers AS c ON o.CustomerID = c.CustomerID
+   GROUP BY
+      year_ , quarter_ , city_name
+)
+
+
+SELECT
+   year_ , quarter_ ,
+   SUM(CASE WHEN city_name = 'Geneva' THEN total_revenue END) AS 'Geneva',
+   SUM(CASE WHEN city_name = 'Brisbane' THEN total_revenue END) AS 'Brisbane',
+   SUM(CASE WHEN city_name = 'Chennai' THEN total_revenue END) AS 'Chennai',
+   SUM(CASE WHEN city_name = 'San Francisco' THEN total_revenue END) AS 'San Francisco'
+FROM
+   HelpTable
+GROUP BY
+   year_ , quarter_
+ORDER BY
+   year_ ASC, quarter_ ASC;
