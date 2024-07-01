@@ -29,4 +29,20 @@ FROM
    Products
 ORDER BY
    productId ASC;
-   
+
+
+
+/*
+2. Surnames From Z
+
+Print the unique Last names of customers whose details are stored in the database.
+Sort the result set in reverse alphabetical order of the Last names.
+
+*/   
+
+SELECT
+   DISTINCT LastName
+FROM
+   Customers
+ORDER BY
+   LastName DESC;   
