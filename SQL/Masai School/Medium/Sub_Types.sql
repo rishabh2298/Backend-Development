@@ -45,4 +45,20 @@ SELECT
 FROM
    Customers
 ORDER BY
-   LastName DESC;   
+   LastName DESC;
+
+
+
+/*
+Identify and print customers' unique Cities and States from Portugal Country.
+Sort the result in alphabetical order of City names.
+*/
+
+SELECT
+   DISTINCT City, State
+FROM
+   Customers
+WHERE
+   Country = 'Portugal'
+ORDER BY
+   City ASC;
