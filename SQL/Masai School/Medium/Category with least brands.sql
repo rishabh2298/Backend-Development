@@ -36,3 +36,23 @@ JOIN
     LeastBrandCategory lbc ON p.Category_ID = lbc.Category_ID
 ORDER BY
     p.Product ASC;
+
+
+
+/*
+2. Brussels, Hamburg, Australia
+
+Print Customer ID, First Name, Last Name, City, State and Country details of customers who either belong to the city of Brussels 
+or the state of Hamburg or the Country Australia.
+Sort the result set in ascending order of Customer ID.
+*/
+
+
+SELECT
+   CustomerId, FirstName, LastName, City, State, Country
+FROM
+   Customers
+WHERE
+   city = 'Brussels' OR state = 'Hamburg' OR country = 'Australia'
+ORDER BY
+   customerId ASC;
