@@ -56,3 +56,39 @@ WHERE
    city = 'Brussels' OR state = 'Hamburg' OR country = 'Australia'
 ORDER BY
    customerId ASC;
+
+
+
+/*
+
+3.Find out the days for which customers remained inactive until their first order.
+
+The output should contain CustomerID, FirstName, LastName, and days until the first order. Sort the output by days until the 
+first order in descending order, and by CustomerID in ascending order.
+
+Fill the null values in all the output columns with 0.
+
+
+|    |   COALESCE(c.CustomerId, 0) | COALESCE(c.FirstName, '0')   | COALESCE(c.LastName, '0')   |   time_ |
+|---:|----------------------------:|:-----------------------------|:----------------------------|--------:|
+|  0 |                       57183 | Jennifer                     | Lawrence                    |     271 |
+|  1 |                       57102 | Kevin                        | Hart                        |     254 |
+|  2 |                       57140 | Kyle                         | Jamieson                    |     241 |
+|  3 |                       57189 | Sarah                        | Hunt                        |     223 |
+|  4 |                       57130 | Jerry                        | James                       |     194 |
+|  5 |                       57188 | Jessica                      | James                       |     186 |
+|  6 |                       57128 | Jack                         | Daniels                     |     184 |
+
+*/
+
+SELECT
+   COALESCE(c.CustomerId, 0), 
+   COALESCE(c.FirstName, '0'), 
+   COALESCE(c.LastName, '0'),
+   COALESCE(DATEDIFF(MIN(o.OrderDate), c.DateEntered), 0) AS time_
+FROM
+   Customers AS c LEFT JOIN Orders AS o ON c.CustomerId = o.CustomerId
+GROUP BY
+   c.CustomerId, c.FirstName, c.LastName
+ORDER BY
+   time_ DESC, c.CustomerID ASC;
