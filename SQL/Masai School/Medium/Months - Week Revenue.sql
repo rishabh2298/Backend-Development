@@ -40,3 +40,17 @@ GROUP BY
      END
 ORDER BY
    total_rev DESC;
+
+
+
+/*
+2. Print the average sale price and the average market price of products produced by the Brand Fresho.
+*/
+
+SELECT
+    AVG(Sale_Price) AS Average_Sale_Price,
+    AVG(Market_Price) AS Average_Market_Price
+FROM
+    Products
+WHERE
+    Brand = 'Fresho';
