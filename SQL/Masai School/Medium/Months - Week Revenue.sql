@@ -54,3 +54,46 @@ FROM
     Products
 WHERE
     Brand = 'Fresho';
+
+
+
+/*
+3. Write a query to identify the customer from each country who placed most expensive products.
+
+   Print productid,category_ID,firstname,lastname,Total_order_amount,country,ranks.
+
+   Sort the result in ascending order of productid.
+
+|    |   ProductId |   Category_Id | FirstName   | LastName   |   Total_Order_Amount | Country          |   Rank_ |
+|---:|------------:|--------------:|:------------|:-----------|---------------------:|:-----------------|--------:|
+|  0 |         115 |          5001 | Joe         | Rogen      |                97086 | Romania          |       1 |
+|  1 |         236 |          5001 | Jonathan    | Moore      |               138997 | Belgium          |       1 |
+|  2 |         324 |          5001 | Amy         | Kirsten    |               156724 | Russia           |       1 |
+|  3 |         368 |          5001 | Duncan      | Elliot     |               128214 | Germany          |       1 |
+|  4 |         391 |          5002 | Jacqueline  | Fernandez  |               152253 | United States    |       1 |
+*/
+
+
+With RankedOrders AS (
+
+SELECT
+   p.ProductId, p.Category_ID,
+   c.FirstName, c.LastName,
+   o.Total_order_amount, c.Country,
+   RANK() OVER (PARTITION BY c.Country ORDER BY o.Total_Order_amount DESC) AS Rank_
+FROM
+   Customers AS c INNER JOIN Orders AS o ON c.CustomerId = o.CustomerId
+   INNER JOIN OrderDetails AS od ON o.OrderId = od.OrderId
+   INNER JOIN Products AS p ON od.ProductId = p.ProductId
+
+)
+
+
+SELECT
+   ProductId, Category_Id, FirstName, LastName, Total_Order_Amount, Country, Rank_
+FROM
+   RankedOrders
+WHERE
+   Rank_ = 1
+ORDER BY
+   productId;
