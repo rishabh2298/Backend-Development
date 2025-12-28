@@ -78,4 +78,14 @@ func main() {
 	}
 	fmt.Println("Stack struct ::", stack2)
 
+	// golang java sql nosql
+	// true false false true
+	// 1 2 3 4 5
+	// true false false true
+
+	// Processing for user ::john
+	// golang java sql nosql
+	// Stack struct :: {[1 2 3 4 5]}
+	// Stack struct :: {[golang java javascript python]}
+
 }
