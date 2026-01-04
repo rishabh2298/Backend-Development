@@ -59,9 +59,38 @@ func readFileFunc() {
 
 }
 
+func readDirFunc() {
+
+	fileDir, err := os.Open("../")
+	if err != nil {
+		panic(err)
+	}
+	defer fileDir.Close()
+
+	dirs, err := fileDir.ReadDir(-1)
+	if err != nil {
+		panic(err)
+	}
+
+	for i, dir := range dirs {
+		fmt.Println(i, dir)
+	}
+
+	// 0 d 20_channels/
+	// 1 d 21_Mutex/
+	// 2 d 16_interface/
+	// 3 d variables/
+	// 4 d constants/ ... so on
+}
+
 func main() {
-	openFunc()
 
-	readFileFunc()
+	// good to use
+	// openFunc()
 
+	// not recomend for larger files (as it load whole into memory)
+	// readFileFunc()
+
+	// accessing directory (for larger files)
+	readDirFunc()
 }
