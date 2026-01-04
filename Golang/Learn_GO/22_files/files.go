@@ -6,6 +6,7 @@ import (
 )
 
 func openFunc() {
+
 	file, err := os.Open("./example.txt")
 	if err != nil {
 		panic(err)
@@ -31,17 +32,36 @@ func openFunc() {
 	for _, val := range buffer {
 		fmt.Print(string(val))
 	}
-	fmt.Println("\n===============")
+	fmt.Println()
 
 	// File Name : example.txt
 	// File permission (read/write) : -rw-rw-r--
 	// File last modified : 2026-01-04 23:41:04.879162579 +0530 IST
 	// Hello World
 	// Learning Golang
-	// ===============
+
+}
+
+func readFileFunc() {
+
+	buffer, err := os.ReadFile("./example.txt")
+	if err != nil {
+		panic(err)
+	}
+
+	for _, val := range buffer {
+		fmt.Print(string(val))
+	}
+	fmt.Println()
+
+	// Hello World
+	// Learning Golang
 
 }
 
 func main() {
 	openFunc()
+
+	readFileFunc()
+
 }
