@@ -83,14 +83,51 @@ func readDirFunc() {
 	// 4 d constants/ ... so on
 }
 
+func writeStringFunc() {
+
+	file, err := os.Create("output.txt")
+
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	file.WriteString("Hello World 2 !!!")
+}
+
+func writeBytesFunc() {
+
+	file, err := os.Create("output.txt")
+
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	bytes := []byte("Yo how are you")
+
+	_, err2 := file.Write(bytes)
+	if err2 != nil {
+		panic(err2)
+	}
+}
+
 func main() {
-
+	// case :: READ
 	// good to use
-	// openFunc()
+	openFunc()
 
-	// not recomend for larger files (as it load whole into memory)
-	// readFileFunc()
+	// not recomend for larger files (as it load's whole into memory)
+	readFileFunc()
 
-	// accessing directory (for larger files)
+	// read folders
 	readDirFunc()
+
+	// case :: WRITE
+	// direct string
+	writeStringFunc()
+
+	// buffer bytes
+	writeBytesFunc()
+
 }
