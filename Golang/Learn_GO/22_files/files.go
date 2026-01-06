@@ -153,6 +153,17 @@ func writeF1ToF2Func() {
 	fmt.Println("File read-write completed F1 ---> F2")
 }
 
+func deleteFunc() {
+
+	err := os.Remove("./output.txt")
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("file removed successfully ...")
+}
+
 func main() {
 	// case :: READ
 	// good to use
@@ -173,5 +184,8 @@ func main() {
 
 	// bufio (file 1 ---> file 2)
 	writeF1ToF2Func()
+
+	// delete files
+	deleteFunc()
 
 }
