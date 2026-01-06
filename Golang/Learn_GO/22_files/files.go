@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -112,6 +113,46 @@ func writeBytesFunc() {
 	}
 }
 
+func writeF1ToF2Func() {
+
+	sourceFile, err := os.Open("./example.txt")
+
+	if err != nil {
+		panic(err)
+	}
+	defer sourceFile.Close()
+
+	destFile, err2 := os.Create("output.txt")
+
+	if err2 != nil {
+		panic(err2)
+	}
+	defer destFile.Close()
+
+	// bufio
+	reader := bufio.NewReader(sourceFile)
+	writer := bufio.NewWriter(destFile)
+
+	for {
+		byteData, err3 := reader.ReadByte()
+		if err3 != nil {
+			if err3.Error() != "EOF" {
+				panic(err3)
+			}
+			break
+		}
+
+		err4 := writer.WriteByte(byteData)
+		if err4 != nil {
+			panic(err4)
+		}
+	}
+
+	writer.Flush()
+
+	fmt.Println("File read-write completed F1 ---> F2")
+}
+
 func main() {
 	// case :: READ
 	// good to use
@@ -129,5 +170,8 @@ func main() {
 
 	// buffer bytes
 	writeBytesFunc()
+
+	// bufio (file 1 ---> file 2)
+	writeF1ToF2Func()
 
 }
