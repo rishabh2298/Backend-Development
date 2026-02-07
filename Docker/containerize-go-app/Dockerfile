@@ -7,6 +7,8 @@ RUN go mod download
 
 COPY . .
 
+ENV RUN_PORT=8085
+
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app ./cmd/main.go
 
 CMD [ "./app" ]
